@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Util {
@@ -66,10 +67,11 @@ public class Util {
 
 	public boolean write(WebDriver driver, By by, String text) {
 		try {
+			
+			exist(driver, by, 15);
 			WebElement inpt = driver.findElement(by);
-			Thread.sleep(200);
 			inpt.sendKeys(text);
-
+			
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -139,6 +141,37 @@ public class Util {
 			assertEquals(message, text);
 		}
 
+	}
+
+	
+	
+	public boolean selectMessageValidation(WebDriver driver, By tab, String emptyInput) {
+		boolean result = false;
+		WebElement table;
+		if(exist(driver, tab, 5)) {
+			 table = driver.findElement(tab);
+		}else {
+			return result;
+		}
+		
+		String message = table.getText();
+		if(message.contains(emptyInput)) {
+			System.out.println(emptyInput +" is empty");
+			result = true;
+		}
+	
+
+		return result;
+
+	}
+	public void selectSubject(WebDriver driver , By select , String option) {
+		exist(driver, select, 10);
+		Select dropdown = new Select(driver.findElement(select));
+		dropdown.selectByVisibleText(option);
+		
+	}
+	public void uploadFile(WebDriver driver , By uploadField , String file) {
+		
 	}
 
 }

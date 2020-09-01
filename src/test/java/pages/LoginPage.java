@@ -13,9 +13,7 @@ public class LoginPage extends Util{
 	By btnSignIn = By.id("SubmitLogin");
 	By spanMessage = By.xpath("//*[@id=\"center_column\"]/p"); 
 	WebDriver driver;
-	public LoginPage(WebDriver driver) {
-		this.driver = driver;
-	}
+
 	public void visit(WebDriver driver) {
 		visitUrl(driver);
 	};

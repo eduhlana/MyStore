@@ -13,7 +13,8 @@ public class LoginSteps  {
 	
 	
 	WebDriver driver = DriverFactory.getDriver("");
-	LoginPage login = new LoginPage(driver);
+	LoginPage login = new LoginPage();
+	
 	@Given("^I visit the website My Store$")
 	public void I_visit_the_website_My_Store() {
 		login.visit(driver);

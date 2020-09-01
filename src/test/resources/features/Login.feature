@@ -1,4 +1,4 @@
-@login @all
+@login 
 Feature: Make Login
 	
 	Scenario Outline: Sucess Login
@@ -9,5 +9,5 @@ Feature: Make Login
 		Then I will see the message "Welcome to your account. Here you can manage all of your personal information and orders." 
 	Examples:
 	|email|password|
-	|mesquitalana@gmail.com|Teste@2019|
+	|mesquitalana@gmail.com|Teste@2020|
 		
